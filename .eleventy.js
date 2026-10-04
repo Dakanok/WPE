@@ -8,6 +8,7 @@ module.exports = function (eleventyConfig) {
     "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js": "assets/vendor/bootstrap/bootstrap.bundle.min.js",
     "node_modules/mixitup/dist/mixitup.min.js": "assets/vendor/mixitup/mixitup.min.js",
     "node_modules/mixitup-pagination/dist/mixitup-pagination.min.js": "assets/vendor/mixitup/mixitup-pagination.min.js",
+    "node_modules/mixitup-multifilter/dist/mixitup-multifilter.min.js": "assets/vendor/mixitup/mixitup-multifilter.min.js",
     "node_modules/@fortawesome/fontawesome-free/css/all.min.css": "assets/vendor/fontawesome/css/all.min.css",
     "node_modules/@fortawesome/fontawesome-free/webfonts": "assets/vendor/fontawesome/webfonts",
   });

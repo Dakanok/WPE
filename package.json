@@ -15,6 +15,7 @@
     "@fortawesome/fontawesome-free": "^7.3.1",
     "bootstrap": "^5.3.8",
     "mixitup": "^3.3.2",
+    "mixitup-multifilter": "^3.3.7",
     "mixitup-pagination": "^3.3.2"
   }
 }

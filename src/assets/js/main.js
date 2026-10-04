@@ -1,8 +1,9 @@
 mixitup("#patches", {
   selectors: { target: ".mix" },
+  multifilter: { enable: true },
   pagination: {
-    limit: 20, // pour tester avec tes 4 patches ; passe à 12 ensuite
-    maintainActivePage: false, // retour à la page 1 à chaque changement de filtre
+    limit: 3, // à passer à 12 après les tests
+    maintainActivePage: false,
     hidePageListIfSinglePage: true,
   },
   templates: {
@@ -14,4 +15,16 @@ mixitup("#patches", {
     pageStatsSingle: "${startPageAt} sur ${totalTargets}",
     pageStatsFail: "Aucun patch trouvé",
   },
+});
+
+// Clic sur un auteur / une étiquette / un style dans une carte
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("[data-filter-target]");
+  if (!link) return;
+
+  event.preventDefault();
+  const select = document.getElementById(link.dataset.filterTarget);
+  select.value = link.dataset.filterValue;
+  select.dispatchEvent(new Event("change", { bubbles: true }));
+  select.closest("form").scrollIntoView({ behavior: "smooth" });
 });

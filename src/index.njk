@@ -4,32 +4,84 @@ title: Woovebox Patches Exchange
 ---
 
 <h1 class="mb-4">Woovebox Patches Exchange</h1>
-
-<div class="d-flex flex-wrap gap-2 mb-4">
-  <button type="button" class="btn btn-outline-primary" data-filter="all">Tous</button>
-  {% for tag in tags %}
-<button type="button" class="btn btn-outline-primary" data-filter=".tag-{{ tag }}">{{ tag | capitalize }}</button>
-  {% endfor %}
-</div>
-
+<form class="row g-2 mb-4">
+  <fieldset class="col-12 col-md" data-filter-group>
+    <select id="filter-tag" class="form-select" aria-label="Étiquette">
+      <option value="">Toutes les étiquettes</option>
+      {% for tag in filters.tags %}
+        <option value=".tag-{{ tag | slugify }}">{{ tag | capitalize }}</option>
+      {% endfor %}
+    </select>
+  </fieldset>
+  <fieldset class="col-12 col-md" data-filter-group>
+    <select id="filter-style" class="form-select" aria-label="Style">
+      <option value="">Tous les styles</option>
+      {% for style in filters.styles %}
+        <option value=".style-{{ style | slugify }}">{{ style | capitalize }}</option>
+      {% endfor %}
+    </select>
+  </fieldset>
+  <fieldset class="col-12 col-md" data-filter-group>
+    <select id="filter-author" class="form-select" aria-label="Auteur">
+      <option value="">Tous les auteurs</option>
+      {% for author in filters.authors %}
+        <option value=".author-{{ author | slugify }}">{{ author }}</option>
+      {% endfor %}
+    </select>
+  </fieldset>
+  <div class="col-12 col-md-auto">
+    <button type="reset" class="btn btn-outline-secondary w-100">
+      <i class="fa-solid fa-xmark"></i>
+      Réinitialiser
+    </button>
+  </div>
+</form>
 <div id="patches" class="row g-4">
   {% for patch in patches %}
-<div class="col-12 col-md-6 col-lg-4 mix tag-{{ patch.tag }}">
-    <div class="card h-100">
-      <div class="card-body">
-        <h2 class="h5 card-title">{{ patch.name }}</h2>
-        <span class="badge text-bg-secondary"><i class="fa-solid fa-tag"></i> {{ patch.tag }}</span>
-        <audio class="w-100 mt-3" controls preload="none"
-               src="/assets/samples/{{ patch.file }}.mp3"></audio>
-      </div>
-      <div class="card-footer bg-transparent">
-        <a class="btn btn-primary w-100" download
-           href="/assets/patches/{{ patch.file }}.syx">
-          <i class="fa-solid fa-download"></i> Télécharger
-        </a>
+    <div class="col-12 col-md-6 col-lg-4 mix tag-{{ patch.tag | slugify }}{% if patch.style %} style-{{ patch.style | slugify }}{%
+        endif %}{% if patch.author %} author-{{ patch.author | slugify }}{% endif %}">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="h5 card-title">
+            {% if patch.author %}
+              <small class="patch-author text-body-secondary fw-normal">
+                <i class="fa-solid fa-user"></i>
+                <a
+                  href="#"
+                  class="link-secondary"
+                  data-filter-target="filter-author"
+                  data-filter-value=".author-{{ patch.author | slugify }}">{{ patch.author }}</a>
+                /
+              </small>
+            {% endif %}
+            {{ patch.name }}
+          </h2>
+          <a
+            href="#"
+            class="badge text-bg-secondary text-decoration-none"
+            data-filter-target="filter-tag"
+            data-filter-value=".tag-{{ patch.tag | slugify }}">
+            <i class="fa-solid fa-guitar"></i>
+            {{ patch.tag }}</a>
+          {% if patch.style %}
+            <a
+              href="#"
+              class="badge text-bg-info text-decoration-none"
+              data-filter-target="filter-style"
+              data-filter-value=".style-{{ patch.style | slugify }}">
+              <i class="fa-solid fa-music"></i>
+              {{ patch.style }}</a>
+          {% endif %}
+          <audio class="w-100 mt-3" controls preload="none" src="/assets/samples/{{ patch.file }}.mp3"></audio>
+        </div>
+        <div class="card-footer bg-transparent">
+          <a class="btn btn-primary w-100" download href="/assets/patches/{{ patch.file }}.syx">
+            <i class="fa-solid fa-download"></i>
+            Télécharger
+          </a>
+        </div>
       </div>
     </div>
-  </div>
   {% endfor %}
 </div>
 <div class="d-flex flex-column align-items-center gap-2 mt-4">
