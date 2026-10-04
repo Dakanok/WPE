@@ -1,20 +1,20 @@
 ---
 layout: base.njk
-title: Woovebox Patches
+title: Woovebox Patches Exchange
 ---
 
-<h1 class="mb-4">Woovebox Patches</h1>
+<h1 class="mb-4">Woovebox Patches Exchange</h1>
 
 <div class="d-flex flex-wrap gap-2 mb-4">
   <button type="button" class="btn btn-outline-primary" data-filter="all">Tous</button>
   {% for tag in tags %}
-  <button type="button" class="btn btn-outline-primary" data-filter=".{{ tag }}">{{ tag | capitalize }}</button>
+<button type="button" class="btn btn-outline-primary" data-filter=".tag-{{ tag }}">{{ tag | capitalize }}</button>
   {% endfor %}
 </div>
 
 <div id="patches" class="row g-4">
   {% for patch in patches %}
-  <div class="col-12 col-md-6 col-lg-4 mix {{ patch.tag }}">
+<div class="col-12 col-md-6 col-lg-4 mix tag-{{ patch.tag }}">
     <div class="card h-100">
       <div class="card-body">
         <h2 class="h5 card-title">{{ patch.name }}</h2>
