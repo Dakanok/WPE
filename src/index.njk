@@ -46,7 +46,7 @@ title: Woovebox Patches Exchange
         <h2 class="h5 card-title">
           {% if patch.author %}
           <small class="patch-author text-body-secondary fw-normal">
-            <i class="fa-solid fa-user"></i>
+            <i class="fa-regular fa-user"></i>
             <a href="#" class="link-secondary"
                data-filter-target="filter-author"
                data-filter-value=".author-{{ patch.author | slugify }}">{{ patch.author }}</a>
@@ -55,11 +55,11 @@ title: Woovebox Patches Exchange
           {% endif %}
           {{ patch.name }}
         </h2>
-        <a href="#" class="badge text-bg-secondary text-decoration-none"
+        <a href="#" class="badge rounded-pill text-bg-light text-decoration-none"
            data-filter-target="filter-tag"
-           data-filter-value=".tag-{{ patch.tag | slugify }}"><i class="fa-solid fa-tag"></i> {{ patch.tag }}</a>
+           data-filter-value=".tag-{{ patch.tag | slugify }}">{{ patch.tag }}</a>
         {% if patch.style %}
-        <a href="#" class="badge text-bg-info text-decoration-none"
+        <a href="#" class="badge rounded-pill text-bg-info text-decoration-none"
            data-filter-target="filter-style"
            data-filter-value=".style-{{ patch.style | slugify }}"><i class="fa-solid fa-music"></i> {{ patch.style }}</a>
         {% endif %}

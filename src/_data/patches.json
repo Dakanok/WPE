@@ -1,4 +1,4 @@
 [
-  { "name": "Bass 01", "tag": "bass", "file": "bass01" },
-  { "name": "Lead 01", "tag": "lead", "file": "lead01", "author": "Dakanok", "style": "Transe" }
+  { "name": "Bass 01", "tag": "Bass", "file": "bass01" },
+  { "name": "Lead 01", "tag": "Lead", "file": "lead01", "author": "Dakanok", "style": "Transe" }
 ]
