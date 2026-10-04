@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/styles/main.css">
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <nav class="navbar bg-body-tertiary border-bottom">
       <div class="container">
         <a class="navbar-brand fw-semibold" href="/">Woovebox Patches Exchange</a>
@@ -89,9 +89,29 @@
         </div>
       </div>
     </div>
-    <main class="container py-4">
+    <main class="container py-4 flex-grow-1">
       {{ content | safe }}
     </main>
+    <footer class="border-top bg-body-tertiary py-4">
+      <div class="container small text-body-secondary">
+        <p class="mb-2">
+          Created by
+          <a class="link-secondary" href="https://www.david-carton.fr/" target="_blank" rel="noopener">David Carton</a>
+        </p>
+        <p class="mb-2">
+          This site is a personal project for sharing patches for the
+          <a class="link-secondary" href="https://www.woovebox.com/" target="_blank" rel="noopener">Woovebox</a>.
+                  It is in no way affiliated with Woovebox or Pocket Animal Audio Pty. Ltd.
+        </p>
+        <p class="mb-2">
+          All patches shared on this site are royalty-free and can be used in any project, including commercial ones.
+        </p>
+        <p class="mb-0">
+          Send your questions, comments or complaints to
+          <a class="link-secondary" href="mailto:woovepatch@proton.me">woovepatch@proton.me</a>.
+        </p>
+      </div>
+    </footer>
     <script src="/assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="/assets/vendor/mixitup/mixitup.min.js"></script>
     <script src="/assets/vendor/mixitup/mixitup-pagination.min.js"></script>
