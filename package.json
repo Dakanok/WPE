@@ -17,5 +17,8 @@
     "mixitup": "^3.3.2",
     "mixitup-multifilter": "^3.3.7",
     "mixitup-pagination": "^3.3.2"
+  },
+  "devDependencies": {
+    "sass": "^1.105.1"
   }
 }
