@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Woovebox Patches</title>
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <main class="container py-4">
+    
+<h1 class="mb-4">Woovebox Patches</h1>
+
+<div class="d-flex flex-wrap gap-2 mb-4">
+  <button type="button" class="btn btn-outline-primary" data-filter="all">Tous</button>
+  
+  <button type="button" class="btn btn-outline-primary" data-filter=".bass">Bass</button>
+  
+  <button type="button" class="btn btn-outline-primary" data-filter=".lead">Lead</button>
+  
+</div>
+
+<div id="patches" class="row g-4">
+  
+  <div class="col-12 col-md-6 col-lg-4 mix bass">
+    <div class="card h-100">
+      <div class="card-body">
+        <h2 class="h5 card-title">bass01</h2>
+        <span class="badge text-bg-secondary"><i class="fa-solid fa-tag"></i> bass</span>
+        <audio class="w-100 mt-3" controls preload="none"
+               src="/assets/samples/bass01.mp3"></audio>
+      </div>
+      <div class="card-footer bg-transparent">
+        <a class="btn btn-primary w-100" download
+           href="/assets/patches/bass01.syx">
+          <i class="fa-solid fa-download"></i> Télécharger
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-12 col-md-6 col-lg-4 mix lead">
+    <div class="card h-100">
+      <div class="card-body">
+        <h2 class="h5 card-title">lead01</h2>
+        <span class="badge text-bg-secondary"><i class="fa-solid fa-tag"></i> lead</span>
+        <audio class="w-100 mt-3" controls preload="none"
+               src="/assets/samples/lead01.mp3"></audio>
+      </div>
+      <div class="card-footer bg-transparent">
+        <a class="btn btn-primary w-100" download
+           href="/assets/patches/lead01.syx">
+          <i class="fa-solid fa-download"></i> Télécharger
+        </a>
+      </div>
+    </div>
+  </div>
+  
+</div>
+  </main>
+  <script src="/assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/mixitup/mixitup.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

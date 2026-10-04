@@ -1,0 +1,4 @@
+.btn-outline-primary.mixitup-control-active {
+  color: #fff;
+  background-color: var(--bs-primary);
+}
