@@ -6,7 +6,7 @@ const unique = (key) =>
   );
 
 module.exports = {
-  tags: unique("tag"),
+  instruments: unique("instrument"),
   styles: unique("style"),
   authors: unique("author"),
 };

@@ -5,10 +5,10 @@ title: Woovebox Patches Exchange
 
 <form class="row g-2 mb-4">
   <fieldset class="col-12 col-md" data-filter-group>
-    <select id="filter-tag" class="form-select" aria-label="Tag">
-      <option value="">All tags</option>
-      {% for tag in filters.tags %}
-      <option value=".tag-{{ tag | slugify }}">{{ tag | capitalize }}</option>
+    <select id="filter-instrument" class="form-select" aria-label="Instrument">
+      <option value="">All instruments</option>
+      {% for instrument in filters.instruments %}
+      <option value=".instrument-{{ instrument | slugify }}">{{ instrument | capitalize }}</option>
       {% endfor %}
     </select>
   </fieldset>
@@ -40,7 +40,7 @@ title: Woovebox Patches Exchange
 
 <div id="patches" class="row g-4">
   {% for patch in patches %}
-  <div class="col-12 col-md-6 col-lg-4 mix tag-{{ patch.tag | slugify }}{% if patch.style %} style-{{ patch.style | slugify }}{% endif %}{% if patch.author %} author-{{ patch.author | slugify }}{% endif %}">
+  <div class="col-12 col-md-6 col-lg-4 mix instrument-{{ patch.instrument | slugify }}{% if patch.style %} style-{{ patch.style | slugify }}{% endif %}{% if patch.author %} author-{{ patch.author | slugify }}{% endif %}">
     <div class="card h-100">
       <div class="card-body">
         <h2 class="h5 card-title">
@@ -56,8 +56,8 @@ title: Woovebox Patches Exchange
           {{ patch.name }}
         </h2>
         <a href="#" class="badge rounded-pill text-bg-light text-decoration-none"
-           data-filter-target="filter-tag"
-           data-filter-value=".tag-{{ patch.tag | slugify }}">{{ patch.tag }}</a>
+           data-filter-target="filter-instrument"
+           data-filter-value=".instrument-{{ patch.instrument | slugify }}">{{ patch.instrument }}</a>
         {% if patch.style %}
         <a href="#" class="badge rounded-pill text-bg-info text-decoration-none"
            data-filter-target="filter-style"
