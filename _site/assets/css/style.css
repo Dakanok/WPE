@@ -2,3 +2,7 @@
   color: #fff;
   background-color: var(--bs-primary);
 }
+.mixitup-control-disabled {
+  opacity: 0.1;
+  pointer-events: none;
+}
