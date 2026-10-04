@@ -1,20 +1,50 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="/styles/main.css">
-  </head>
-  <body>
-    <main class="container py-4">
-      {{ content | safe }}
-    </main>
-    <script src="/assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="/assets/vendor/mixitup/mixitup.min.js"></script>
-    <script src="/assets/vendor/mixitup/mixitup-pagination.min.js"></script>
-    <script src="/assets/vendor/mixitup/mixitup-multifilter.min.js"></script>
-    <script src="/assets/js/main.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <script>
+    // Thème choisi par l'utilisateur, sinon préférence du navigateur
+    (function () {
+      var theme;
+      try { theme = localStorage.getItem("theme"); } catch (e) {}
+      if (!theme) {
+        theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-bs-theme", theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+  <nav class="navbar bg-body-tertiary border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="/">Woovebox Patches Exchange</a>
+      <div class="d-flex gap-2">
+        <a class="btn btn-primary"
+           href="mailto:you@example.com?subject=Woovebox%20patch%20submission">
+          <i class="fa-solid fa-upload"></i>
+          <span class="d-none d-sm-inline">Submit a patch</span>
+        </a>
+        <button id="theme-toggle" type="button" class="btn btn-outline-secondary"
+                aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon icon-moon"></i>
+          <i class="fa-solid fa-lightbulb icon-sun"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    {{ content | safe }}
+  </main>
+
+  <script src="/assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/mixitup/mixitup.min.js"></script>
+  <script src="/assets/vendor/mixitup/mixitup-pagination.min.js"></script>
+  <script src="/assets/vendor/mixitup/mixitup-multifilter.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
 </html>

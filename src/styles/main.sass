@@ -5,12 +5,16 @@ $font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, sans-seri
 @import "bootstrap/scss/bootstrap"
 
 .btn-outline-primary.mixitup-control-active
-  color: #fff
-  background-color: var(--bs-primary)
+    color: #fff
+    background-color: var(--bs-primary)
 
 .mixitup-control-disabled
-  opacity: 0.5
-  pointer-events: none
+    opacity: 0.5
+    pointer-events: none
 
 .patch-author
-  font-size: 0.75rem
+    font-size: 0.75rem
+
+[data-bs-theme="light"] .icon-sun,
+[data-bs-theme="dark"] .icon-moon
+    display: none

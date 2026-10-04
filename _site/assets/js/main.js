@@ -28,3 +28,16 @@ document.addEventListener("click", (event) => {
   select.dispatchEvent(new Event("change", { bubbles: true }));
   select.closest("form").scrollIntoView({ behavior: "smooth" });
 });
+
+const root = document.documentElement;
+
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  const next = root.getAttribute("data-bs-theme") === "dark" ? "light" : "dark";
+  root.setAttribute("data-bs-theme", next);
+  try { localStorage.setItem("theme", next); } catch {}
+});
+
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
+  try { if (localStorage.getItem("theme")) return; } catch {}
+  root.setAttribute("data-bs-theme", event.matches ? "dark" : "light");
+});
