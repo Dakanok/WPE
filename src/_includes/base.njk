@@ -21,20 +21,23 @@
     </script>
     <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/styles/main.css">
+    <link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg">
   </head>
   <body class="d-flex flex-column min-vh-100">
     <nav class="navbar bg-body-tertiary border-bottom">
-      <div class="container">
-        <a class="navbar-brand fw-semibold" href="/">Woovebox Patches Exchange</a>
-        <div class="d-flex gap-2">
+      <div class="container row-gap-2">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+          <img src="/assets/img/logo.svg" width="32" height="32" alt=""> Woovebox Patches Exchange
+        </a>
+        <div class="d-flex gap-2 ms-auto">
           <button
             type="button"
             class="btn btn-primary"
             data-bs-toggle="offcanvas"
             data-bs-target="#submit-offcanvas"
             aria-controls="submit-offcanvas">
-            <i class="fa-solid fa-upload"></i>
-            <span class="d-none d-sm-inline">Submit a patch</span>
+            <i class="fa-solid fa-upload" aria-hidden="true"></i>
+            Submit a patch
           </button>
           <button id="theme-toggle" type="button" class="btn btn-outline-secondary" aria-label="Toggle dark mode">
             <i class="fa-solid fa-moon icon-moon"></i>
@@ -106,7 +109,7 @@
         <p class="mb-2">
           This site is a personal project for sharing patches for the
           <a class="link-secondary" href="https://www.woovebox.com/" target="_blank" rel="noopener">Woovebox</a>.
-                              It is in no way affiliated with Woovebox or Pocket Animal Audio Pty. Ltd.
+                                                      It is in no way affiliated with Woovebox or Pocket Animal Audio Pty. Ltd.
         </p>
         <p class="mb-2">
           All patches shared on this site are royalty-free and can be used in any project, including commercial ones.

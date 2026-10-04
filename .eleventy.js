@@ -5,13 +5,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
 
   eleventyConfig.addPassthroughCopy({
-    // (ligne bootstrap.min.css supprimée)
     "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js": "assets/vendor/bootstrap/bootstrap.bundle.min.js",
     "node_modules/mixitup/dist/mixitup.min.js": "assets/vendor/mixitup/mixitup.min.js",
     "node_modules/mixitup-pagination/dist/mixitup-pagination.min.js": "assets/vendor/mixitup/mixitup-pagination.min.js",
     "node_modules/mixitup-multifilter/dist/mixitup-multifilter.min.js": "assets/vendor/mixitup/mixitup-multifilter.min.js",
     "node_modules/@fortawesome/fontawesome-free/css/all.min.css": "assets/vendor/fontawesome/css/all.min.css",
     "node_modules/@fortawesome/fontawesome-free/webfonts": "assets/vendor/fontawesome/webfonts",
+    "node_modules/@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2": "assets/fonts/space-grotesk-latin-wght-normal.woff2",
+    "node_modules/@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2": "assets/fonts/jetbrains-mono-latin-wght-normal.woff2",
   });
 
   // Compilation des fichiers .sass (syntaxe indentée)

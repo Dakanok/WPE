@@ -21,20 +21,23 @@
     </script>
     <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/styles/main.css">
+    <link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg">
   </head>
   <body class="d-flex flex-column min-vh-100">
     <nav class="navbar bg-body-tertiary border-bottom">
-      <div class="container">
-        <a class="navbar-brand fw-semibold" href="/">Woovebox Patches Exchange</a>
-        <div class="d-flex gap-2">
+      <div class="container row-gap-2">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+          <img src="/assets/img/logo.svg" width="32" height="32" alt=""> Woovebox Patches Exchange
+        </a>
+        <div class="d-flex gap-2 ms-auto">
           <button
             type="button"
             class="btn btn-primary"
             data-bs-toggle="offcanvas"
             data-bs-target="#submit-offcanvas"
             aria-controls="submit-offcanvas">
-            <i class="fa-solid fa-upload"></i>
-            <span class="d-none d-sm-inline">Submit a patch</span>
+            <i class="fa-solid fa-upload" aria-hidden="true"></i>
+            Submit a patch
           </button>
           <button id="theme-toggle" type="button" class="btn btn-outline-secondary" aria-label="Toggle dark mode">
             <i class="fa-solid fa-moon icon-moon"></i>
@@ -96,104 +99,132 @@
     <select id="filter-instrument" class="form-select" aria-label="Instrument">
       <option value="">All instruments</option>
       
-      <option value=".instrument-bass">Bass</option>
+        <option value=".instrument-bass">Bass</option>
       
-      <option value=".instrument-lead">Lead</option>
+        <option value=".instrument-lead">Lead</option>
       
     </select>
   </fieldset>
-
   <fieldset class="col-12 col-md" data-filter-group>
     <select id="filter-style" class="form-select" aria-label="Style">
       <option value="">All styles</option>
       
-      <option value=".style-transe">Transe</option>
+        <option value=".style-transe">Transe</option>
       
     </select>
   </fieldset>
-
   <fieldset class="col-12 col-md" data-filter-group>
     <select id="filter-author" class="form-select" aria-label="Author">
       <option value="">All authors</option>
       
-      <option value=".author-dakanok">Dakanok</option>
+        <option value=".author-dakanok">Dakanok</option>
       
     </select>
   </fieldset>
-
   <div class="col-12 col-md-auto">
     <button type="reset" class="btn btn-outline-secondary w-100">
-      <i class="fa-solid fa-xmark"></i> Reset
+      <i class="fa-solid fa-xmark"></i>
+      Reset
     </button>
   </div>
 </form>
-
 <div id="patches" class="row g-4">
   
-  <div class="col-12 col-md-6 col-lg-4 mix instrument-bass">
-    <div class="card h-100">
-      <div class="card-body">
-        <h2 class="h5 card-title">
+    <div class="col-12 col-md-6 col-lg-4 mix instrument-bass">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="h5 card-title">
+            
+            Bass 01
+          </h2>
+          <a
+            href="#"
+            class="wpe-badge wpe-badge-accent"
+            data-filter-target="filter-instrument"
+            data-filter-value=".instrument-bass">Bass</a>
           
-          Bass 01
-        </h2>
-        <a href="#" class="badge rounded-pill text-bg-light text-decoration-none"
-           data-filter-target="filter-instrument"
-           data-filter-value=".instrument-bass"><i class="fa-solid fa-wave-square"></i> Bass</a>
-        
-        <audio class="w-100 mt-3" controls preload="none"
-               src="/assets/samples/bass01.mp3"></audio>
+          <div class="wpe-player d-flex align-items-center gap-2 mt-3">
+            <button type="button" class="wpe-player-toggle" aria-label="Play Bass 01" aria-pressed="false">
+              <i class="fa-solid fa-play" aria-hidden="true"></i>
+            </button>
+            <input
+              type="range"
+              class="wpe-player-seek"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              disabled
+              aria-label="Seek in Bass 01">
+              <span class="wpe-player-time">0:00 / --:--</span>
+              <audio preload="none" src="/assets/samples/bass01.mp3"></audio>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent">
+            <a class="btn btn-primary w-100" download href="/assets/patches/bass01.syx">
+              <i class="fa-solid fa-download"></i>
+              Download
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="card-footer bg-transparent">
-        <a class="btn btn-primary w-100" download
-           href="/assets/patches/bass01.syx">
-          <i class="fa-solid fa-download"></i> Download
-        </a>
+    
+    <div class="col-12 col-md-6 col-lg-4 mix instrument-lead style-transe author-dakanok">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="h5 card-title">
+            
+              <small class="patch-author">
+                <a
+                  href="#"
+                  class="patch-author-link"
+                  data-filter-target="filter-author"
+                  data-filter-value=".author-dakanok"><i class="fa-regular fa-user"></i> Dakanok</a>
+                /
+              </small>
+            
+            Lead 01
+          </h2>
+          <a
+            href="#"
+            class="wpe-badge wpe-badge-accent"
+            data-filter-target="filter-instrument"
+            data-filter-value=".instrument-lead">Lead</a>
+          
+            <a href="#" class="wpe-badge" data-filter-target="filter-style" data-filter-value=".style-transe">
+              Transe</a>
+          
+          <div class="wpe-player d-flex align-items-center gap-2 mt-3">
+            <button type="button" class="wpe-player-toggle" aria-label="Play Lead 01" aria-pressed="false">
+              <i class="fa-solid fa-play" aria-hidden="true"></i>
+            </button>
+            <input
+              type="range"
+              class="wpe-player-seek"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              disabled
+              aria-label="Seek in Lead 01">
+              <span class="wpe-player-time">0:00 / --:--</span>
+              <audio preload="none" src="/assets/samples/lead01.mp3"></audio>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent">
+            <a class="btn btn-primary w-100" download href="/assets/patches/lead01.syx">
+              <i class="fa-solid fa-download"></i>
+              Download
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
+    
   </div>
-  
-  <div class="col-12 col-md-6 col-lg-4 mix instrument-lead style-transe author-dakanok">
-    <div class="card h-100">
-      <div class="card-body">
-        <h2 class="h5 card-title">
-          
-          <small class="patch-author text-body-secondary fw-normal">
-            <i class="fa-regular fa-user"></i>
-            <a href="#" class="link-secondary"
-               data-filter-target="filter-author"
-               data-filter-value=".author-dakanok">Dakanok</a>
-            /
-          </small>
-          
-          Lead 01
-        </h2>
-        <a href="#" class="badge rounded-pill text-bg-light text-decoration-none"
-           data-filter-target="filter-instrument"
-           data-filter-value=".instrument-lead"><i class="fa-solid fa-wave-square"></i> Lead</a>
-        
-        <a href="#" class="badge rounded-pill text-bg-info text-decoration-none"
-           data-filter-target="filter-style"
-           data-filter-value=".style-transe"><i class="fa-solid fa-music"></i> Transe</a>
-        
-        <audio class="w-100 mt-3" controls preload="none"
-               src="/assets/samples/lead01.mp3"></audio>
-      </div>
-      <div class="card-footer bg-transparent">
-        <a class="btn btn-primary w-100" download
-           href="/assets/patches/lead01.syx">
-          <i class="fa-solid fa-download"></i> Download
-        </a>
-      </div>
-    </div>
+  <div class="d-flex flex-column align-items-center gap-2 mt-4">
+    <div class="mixitup-page-list d-flex flex-wrap justify-content-center gap-2"></div>
+    <div class="mixitup-page-stats text-body-secondary small"></div>
   </div>
-  
-</div>
-
-<div class="d-flex flex-column align-items-center gap-2 mt-4">
-  <div class="mixitup-page-list d-flex flex-wrap justify-content-center gap-2"></div>
-  <div class="mixitup-page-stats text-body-secondary small"></div>
-</div>
     </main>
     <footer class="border-top bg-body-tertiary py-4">
       <div class="container small text-body-secondary">
@@ -209,7 +240,7 @@
         <p class="mb-2">
           This site is a personal project for sharing patches for the
           <a class="link-secondary" href="https://www.woovebox.com/" target="_blank" rel="noopener">Woovebox</a>.
-                              It is in no way affiliated with Woovebox or Pocket Animal Audio Pty. Ltd.
+                                                      It is in no way affiliated with Woovebox or Pocket Animal Audio Pty. Ltd.
         </p>
         <p class="mb-2">
           All patches shared on this site are royalty-free and can be used in any project, including commercial ones.

@@ -8,76 +8,89 @@ title: Woovebox Patches Exchange
     <select id="filter-instrument" class="form-select" aria-label="Instrument">
       <option value="">All instruments</option>
       {% for instrument in filters.instruments %}
-      <option value=".instrument-{{ instrument | slugify }}">{{ instrument | capitalize }}</option>
+        <option value=".instrument-{{ instrument | slugify }}">{{ instrument | capitalize }}</option>
       {% endfor %}
     </select>
   </fieldset>
-
   <fieldset class="col-12 col-md" data-filter-group>
     <select id="filter-style" class="form-select" aria-label="Style">
       <option value="">All styles</option>
       {% for style in filters.styles %}
-      <option value=".style-{{ style | slugify }}">{{ style | capitalize }}</option>
+        <option value=".style-{{ style | slugify }}">{{ style | capitalize }}</option>
       {% endfor %}
     </select>
   </fieldset>
-
   <fieldset class="col-12 col-md" data-filter-group>
     <select id="filter-author" class="form-select" aria-label="Author">
       <option value="">All authors</option>
       {% for author in filters.authors %}
-      <option value=".author-{{ author | slugify }}">{{ author }}</option>
+        <option value=".author-{{ author | slugify }}">{{ author }}</option>
       {% endfor %}
     </select>
   </fieldset>
-
   <div class="col-12 col-md-auto">
     <button type="reset" class="btn btn-outline-secondary w-100">
-      <i class="fa-solid fa-xmark"></i> Reset
+      <i class="fa-solid fa-xmark"></i>
+      Reset
     </button>
   </div>
 </form>
-
 <div id="patches" class="row g-4">
   {% for patch in patches %}
-  <div class="col-12 col-md-6 col-lg-4 mix instrument-{{ patch.instrument | slugify }}{% if patch.style %} style-{{ patch.style | slugify }}{% endif %}{% if patch.author %} author-{{ patch.author | slugify }}{% endif %}">
-    <div class="card h-100">
-      <div class="card-body">
-        <h2 class="h5 card-title">
-          {% if patch.author %}
-          <small class="patch-author text-body-secondary fw-normal">
-            <i class="fa-regular fa-user"></i>
-            <a href="#" class="link-secondary"
-               data-filter-target="filter-author"
-               data-filter-value=".author-{{ patch.author | slugify }}">{{ patch.author }}</a>
-            /
-          </small>
+    <div class="col-12 col-md-6 col-lg-4 mix instrument-{{ patch.instrument | slugify }}{% if patch.style %} style-{{ patch.style
+        | slugify }}{% endif %}{% if patch.author %} author-{{ patch.author | slugify }}{% endif %}">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="h5 card-title">
+            {% if patch.author %}
+              <small class="patch-author">
+                <a
+                  href="#"
+                  class="patch-author-link"
+                  data-filter-target="filter-author"
+                  data-filter-value=".author-{{ patch.author | slugify }}"><i class="fa-regular fa-user"></i> {{ patch.author }}</a>
+                /
+              </small>
+            {% endif %}
+            {{ patch.name }}
+          </h2>
+          <a
+            href="#"
+            class="wpe-badge wpe-badge-accent"
+            data-filter-target="filter-instrument"
+            data-filter-value=".instrument-{{ patch.instrument | slugify }}">{{ patch.instrument }}</a>
+          {% if patch.style %}
+            <a href="#" class="wpe-badge" data-filter-target="filter-style" data-filter-value=".style-{{ patch.style | slugify }}">
+              {{ patch.style }}</a>
           {% endif %}
-          {{ patch.name }}
-        </h2>
-        <a href="#" class="badge rounded-pill text-bg-light text-decoration-none"
-           data-filter-target="filter-instrument"
-           data-filter-value=".instrument-{{ patch.instrument | slugify }}"><i class="fa-solid fa-wave-square"></i> {{ patch.instrument }}</a>
-        {% if patch.style %}
-        <a href="#" class="badge rounded-pill text-bg-info text-decoration-none"
-           data-filter-target="filter-style"
-           data-filter-value=".style-{{ patch.style | slugify }}"><i class="fa-solid fa-music"></i> {{ patch.style }}</a>
-        {% endif %}
-        <audio class="w-100 mt-3" controls preload="none"
-               src="/assets/samples/{{ patch.file }}.mp3"></audio>
+          <div class="wpe-player d-flex align-items-center gap-2 mt-3">
+            <button type="button" class="wpe-player-toggle" aria-label="Play {{ patch.name }}" aria-pressed="false">
+              <i class="fa-solid fa-play" aria-hidden="true"></i>
+            </button>
+            <input
+              type="range"
+              class="wpe-player-seek"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              disabled
+              aria-label="Seek in {{ patch.name }}">
+              <span class="wpe-player-time">0:00 / --:--</span>
+              <audio preload="none" src="/assets/samples/{{ patch.file }}.mp3"></audio>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent">
+            <a class="btn btn-primary w-100" download href="/assets/patches/{{ patch.file }}.syx">
+              <i class="fa-solid fa-download"></i>
+              Download
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="card-footer bg-transparent">
-        <a class="btn btn-primary w-100" download
-           href="/assets/patches/{{ patch.file }}.syx">
-          <i class="fa-solid fa-download"></i> Download
-        </a>
-      </div>
-    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
-</div>
-
-<div class="d-flex flex-column align-items-center gap-2 mt-4">
-  <div class="mixitup-page-list d-flex flex-wrap justify-content-center gap-2"></div>
-  <div class="mixitup-page-stats text-body-secondary small"></div>
-</div>
+  <div class="d-flex flex-column align-items-center gap-2 mt-4">
+    <div class="mixitup-page-list d-flex flex-wrap justify-content-center gap-2"></div>
+    <div class="mixitup-page-stats text-body-secondary small"></div>
+  </div>

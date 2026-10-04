@@ -1,20 +1,209 @@
-$primary: #6f42c1
-$border-radius: 0.5rem
-$font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif
+// ---------- Polices ----------
+@font-face
+  font-family: "Space Grotesk"
+  font-style: normal
+  font-weight: 300 700
+  font-display: swap
+  src: url("/assets/fonts/space-grotesk-latin-wght-normal.woff2") format("woff2")
+
+@font-face
+  font-family: "JetBrains Mono"
+  font-style: normal
+  font-weight: 100 800
+  font-display: swap
+  src: url("/assets/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2")
+
+// ---------- Variables Bootstrap (avant l'import) ----------
+$primary: #4be3a1
+$secondary: #5d5f70
+$color-contrast-dark: #12131c
+
+$font-family-sans-serif: "Space Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif
+$font-family-monospace: "JetBrains Mono", SFMono-Regular, Menlo, Consolas, monospace
+$headings-font-weight: 500
+
+$border-radius: 0.375rem
+$border-radius-sm: 0.25rem
+$border-radius-lg: 0.5rem
+
+// Mode clair : papier
+$body-bg: #f3f0e8
+$body-color: #1a1b25
+$body-emphasis-color: #0b0c12
+$body-secondary-color: #5d5f70
+$body-tertiary-bg: #fbf9f4
+$border-color: #dcd7c9
+$link-color: #09704a
+
+// Mode sombre : encre
+$body-bg-dark: #12131c
+$body-color-dark: #ece9e1
+$body-emphasis-color-dark: #f7f5ef
+$body-secondary-color-dark: #9a9cae
+$body-tertiary-bg-dark: #1b1d29
+$border-color-dark: #2a2d3d
+$link-color-dark: #4be3a1
+
+// Les cartes utilisent la surface "tertiary"
+$card-bg: var(--bs-tertiary-bg)
 
 @import "bootstrap/scss/bootstrap"
 
-.btn-outline-primary.mixitup-control-active
-    color: #fff
-    background-color: var(--bs-primary)
+// ---------- Jetons de la marque selon le mode ----------
+:root
+  --wpe-accent: #09704a
+  --wpe-ink-bg: #1a1b25
+  --wpe-ink-fg: #f3f0e8
+  --wpe-track: #dcd7c9
+  --wpe-line: #b9b3a3
+
+[data-bs-theme="dark"]
+  --wpe-accent: #4be3a1
+  --wpe-ink-bg: #ece9e1
+  --wpe-ink-fg: #12131c
+  --wpe-track: #2f3243
+  --wpe-line: #4a4e63
+
+// ---------- Boutons neutres (reset, pagination) ----------
+[data-bs-theme="dark"] .btn-outline-secondary
+  --bs-btn-color: #9a9cae
+  --bs-btn-border-color: #4a4e63
+  --bs-btn-hover-color: #12131c
+  --bs-btn-hover-bg: #9a9cae
+  --bs-btn-hover-border-color: #9a9cae
+
+// Page active de la pagination (MixItUp)
+.btn-outline-secondary.mixitup-control-active
+  color: var(--wpe-ink-fg)
+  background-color: var(--wpe-ink-bg)
+  border-color: var(--wpe-ink-bg)
 
 .mixitup-control-disabled
-    opacity: 0.5
-    pointer-events: none
+  opacity: 0.5
+  pointer-events: none
 
+// ---------- Badges ----------
+.wpe-badge
+  display: inline-block
+  padding: 0.1rem 0.4rem
+  font-family: var(--bs-font-monospace)
+  font-size: 0.75rem
+  line-height: 1.5
+  text-decoration: none
+  color: var(--bs-secondary-color)
+  border: 1px solid var(--wpe-line)
+  border-radius: $border-radius-sm
+
+  &:hover
+    color: var(--bs-body-color)
+    border-color: var(--bs-secondary-color)
+
+// Badge plein : l'instrument
+.wpe-badge-accent
+  color: $color-contrast-dark
+  background-color: $primary
+  border-color: $primary
+
+  &:hover
+    color: $color-contrast-dark
+    border-color: $primary
+    opacity: 0.85
+
+// ---------- Auteur ----------
 .patch-author
-    font-size: 0.75rem
+  display: block
+  margin-bottom: 0.125rem
+  font-family: var(--bs-font-monospace)
+  font-size: 0.75rem
+  font-weight: 400
+  color: var(--bs-secondary-color)
 
+.patch-author-link
+  color: inherit
+  text-decoration: none
+
+  &:hover
+    color: var(--bs-body-color)
+    text-decoration: underline
+
+// ---------- Lecteur audio ----------
+.wpe-player-toggle
+  flex: none
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  width: 2.25rem
+  height: 2.25rem
+  padding: 0
+  cursor: pointer
+  color: var(--wpe-ink-fg)
+  background-color: var(--wpe-ink-bg)
+  border: 0
+  border-radius: $border-radius
+
+  &:hover
+    opacity: 0.85
+
+  &:focus-visible
+    outline: 2px solid var(--wpe-accent)
+    outline-offset: 2px
+
+.wpe-player-time
+  font-family: var(--bs-font-monospace)
+  font-size: 0.75rem
+  color: var(--bs-secondary-color)
+  white-space: nowrap
+
+.wpe-player-seek
+  --wpe-progress: 0%
+  flex: 1
+  min-width: 0
+  height: 1.5rem
+  margin: 0
+  background: transparent
+  cursor: pointer
+  appearance: none
+  -webkit-appearance: none
+
+  &:disabled
+    cursor: default
+
+  &:focus-visible
+    outline: 2px solid var(--wpe-accent)
+    outline-offset: 2px
+
+.wpe-player-seek::-webkit-slider-runnable-track
+  height: 4px
+  border-radius: 2px
+  background: linear-gradient(to right, var(--bs-body-color) var(--wpe-progress), var(--wpe-track) var(--wpe-progress))
+
+.wpe-player-seek::-webkit-slider-thumb
+  -webkit-appearance: none
+  width: 12px
+  height: 12px
+  margin-top: -4px
+  border: 0
+  border-radius: 50%
+  background: var(--bs-body-color)
+
+.wpe-player-seek::-moz-range-track
+  height: 4px
+  border-radius: 2px
+  background: var(--wpe-track)
+
+.wpe-player-seek::-moz-range-progress
+  height: 4px
+  border-radius: 2px
+  background: var(--bs-body-color)
+
+.wpe-player-seek::-moz-range-thumb
+  width: 12px
+  height: 12px
+  border: 0
+  border-radius: 50%
+  background: var(--bs-body-color)
+
+// ---------- Mode clair / sombre : icônes de la bascule ----------
 [data-bs-theme="light"] .icon-sun,
 [data-bs-theme="dark"] .icon-moon
-    display: none
+  display: none
