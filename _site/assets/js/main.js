@@ -11,9 +11,9 @@ mixitup("#patches", {
     pagerPrev: '<button type="button" class="btn btn-outline-primary ${classNames}" data-page="prev">&laquo;</button>',
     pagerNext: '<button type="button" class="btn btn-outline-primary ${classNames}" data-page="next">&raquo;</button>',
     pagerTruncationMarker: '<span class="align-self-center px-1 ${classNames}">&hellip;</span>',
-    pageStats: "${startPageAt} à ${endPageAt} sur ${totalTargets}",
-    pageStatsSingle: "${startPageAt} sur ${totalTargets}",
-    pageStatsFail: "Aucun patch trouvé",
+    pageStats: "${startPageAt} to ${endPageAt} of ${totalTargets}",
+    pageStatsSingle: "${startPageAt} of ${totalTargets}",
+    pageStatsFail: "No patches found",
   },
 });
 

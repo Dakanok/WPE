@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,113 +11,106 @@
     <main class="container py-4">
       
 <h1 class="mb-4">Woovebox Patches Exchange</h1>
+
 <form class="row g-2 mb-4">
   <fieldset class="col-12 col-md" data-filter-group>
-    <select id="filter-tag" class="form-select" aria-label="Étiquette">
-      <option value="">Toutes les étiquettes</option>
+    <select id="filter-tag" class="form-select" aria-label="Tag">
+      <option value="">All tags</option>
       
-        <option value=".tag-bass">Bass</option>
+      <option value=".tag-bass">Bass</option>
       
-        <option value=".tag-lead">Lead</option>
+      <option value=".tag-lead">Lead</option>
       
     </select>
   </fieldset>
+
   <fieldset class="col-12 col-md" data-filter-group>
     <select id="filter-style" class="form-select" aria-label="Style">
-      <option value="">Tous les styles</option>
+      <option value="">All styles</option>
       
-        <option value=".style-transe">Transe</option>
+      <option value=".style-transe">Transe</option>
       
     </select>
   </fieldset>
+
   <fieldset class="col-12 col-md" data-filter-group>
-    <select id="filter-author" class="form-select" aria-label="Auteur">
-      <option value="">Tous les auteurs</option>
+    <select id="filter-author" class="form-select" aria-label="Author">
+      <option value="">All authors</option>
       
-        <option value=".author-dakanok">Dakanok</option>
+      <option value=".author-dakanok">Dakanok</option>
       
     </select>
   </fieldset>
+
   <div class="col-12 col-md-auto">
     <button type="reset" class="btn btn-outline-secondary w-100">
-      <i class="fa-solid fa-xmark"></i>
-      Réinitialiser
+      <i class="fa-solid fa-xmark"></i> Reset
     </button>
   </div>
 </form>
+
 <div id="patches" class="row g-4">
   
-    <div class="col-12 col-md-6 col-lg-4 mix tag-bass">
-      <div class="card h-100">
-        <div class="card-body">
-          <h2 class="h5 card-title">
-            
-            Bass 01
-          </h2>
-          <a
-            href="#"
-            class="badge text-bg-secondary text-decoration-none"
-            data-filter-target="filter-tag"
-            data-filter-value=".tag-bass">
-            <i class="fa-solid fa-guitar"></i>
-            bass</a>
+  <div class="col-12 col-md-6 col-lg-4 mix tag-bass">
+    <div class="card h-100">
+      <div class="card-body">
+        <h2 class="h5 card-title">
           
-          <audio class="w-100 mt-3" controls preload="none" src="/assets/samples/bass01.mp3"></audio>
-        </div>
-        <div class="card-footer bg-transparent">
-          <a class="btn btn-primary w-100" download href="/assets/patches/bass01.syx">
-            <i class="fa-solid fa-download"></i>
-            Télécharger
-          </a>
-        </div>
+          Bass 01
+        </h2>
+        <a href="#" class="badge text-bg-secondary text-decoration-none"
+           data-filter-target="filter-tag"
+           data-filter-value=".tag-bass"><i class="fa-solid fa-tag"></i> bass</a>
+        
+        <audio class="w-100 mt-3" controls preload="none"
+               src="/assets/samples/bass01.mp3"></audio>
+      </div>
+      <div class="card-footer bg-transparent">
+        <a class="btn btn-primary w-100" download
+           href="/assets/patches/bass01.syx">
+          <i class="fa-solid fa-download"></i> Download
+        </a>
       </div>
     </div>
+  </div>
   
-    <div class="col-12 col-md-6 col-lg-4 mix tag-lead style-transe author-dakanok">
-      <div class="card h-100">
-        <div class="card-body">
-          <h2 class="h5 card-title">
-            
-              <small class="patch-author text-body-secondary fw-normal">
-                <i class="fa-solid fa-user"></i>
-                <a
-                  href="#"
-                  class="link-secondary"
-                  data-filter-target="filter-author"
-                  data-filter-value=".author-dakanok">Dakanok</a>
-                /
-              </small>
-            
-            Lead 01
-          </h2>
-          <a
-            href="#"
-            class="badge text-bg-secondary text-decoration-none"
-            data-filter-target="filter-tag"
-            data-filter-value=".tag-lead">
-            <i class="fa-solid fa-guitar"></i>
-            lead</a>
+  <div class="col-12 col-md-6 col-lg-4 mix tag-lead style-transe author-dakanok">
+    <div class="card h-100">
+      <div class="card-body">
+        <h2 class="h5 card-title">
           
-            <a
-              href="#"
-              class="badge text-bg-info text-decoration-none"
-              data-filter-target="filter-style"
-              data-filter-value=".style-transe">
-              <i class="fa-solid fa-music"></i>
-              Transe</a>
+          <small class="patch-author text-body-secondary fw-normal">
+            <i class="fa-solid fa-user"></i>
+            <a href="#" class="link-secondary"
+               data-filter-target="filter-author"
+               data-filter-value=".author-dakanok">Dakanok</a>
+            /
+          </small>
           
-          <audio class="w-100 mt-3" controls preload="none" src="/assets/samples/lead01.mp3"></audio>
-        </div>
-        <div class="card-footer bg-transparent">
-          <a class="btn btn-primary w-100" download href="/assets/patches/lead01.syx">
-            <i class="fa-solid fa-download"></i>
-            Télécharger
-          </a>
-        </div>
+          Lead 01
+        </h2>
+        <a href="#" class="badge text-bg-secondary text-decoration-none"
+           data-filter-target="filter-tag"
+           data-filter-value=".tag-lead"><i class="fa-solid fa-tag"></i> lead</a>
+        
+        <a href="#" class="badge text-bg-info text-decoration-none"
+           data-filter-target="filter-style"
+           data-filter-value=".style-transe"><i class="fa-solid fa-music"></i> Transe</a>
+        
+        <audio class="w-100 mt-3" controls preload="none"
+               src="/assets/samples/lead01.mp3"></audio>
+      </div>
+      <div class="card-footer bg-transparent">
+        <a class="btn btn-primary w-100" download
+           href="/assets/patches/lead01.syx">
+          <i class="fa-solid fa-download"></i> Download
+        </a>
       </div>
     </div>
+  </div>
   
 </div>
+
 <div class="d-flex flex-column align-items-center gap-2 mt-4">
   <div class="mixitup-page-list d-flex flex-wrap justify-content-center gap-2"></div>
   <div class="mixitup-page-stats text-body-secondary small"></div>
