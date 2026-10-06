@@ -94,38 +94,49 @@
     </div>
     <main class="container py-4 flex-grow-1">
       
-<form class="row g-2 mb-4">
-  <fieldset class="col-12 col-md" data-filter-group>
-    <select id="filter-instrument" class="form-select" aria-label="Instrument">
-      <option value="">All instruments</option>
+<form class="bg-body-secondary border rounded p-3 mb-4">
+  <fieldset id="filter-instrument" class="mb-3" data-filter-group>
+    <legend class="visually-hidden">Instrument</legend>
+    <div class="d-flex flex-wrap align-items-center gap-2">
+      <span class="wpe-filter-label" aria-hidden="true">Instrument:</span>
+      <button type="button" id="instrument-all" class="btn btn-outline-secondary"
+              aria-pressed="true">All</button>
       
-        <option value=".instrument-bass">Bass</option>
+      <input type="checkbox" class="btn-check" id="instrument-bass"
+             value=".instrument-bass" autocomplete="off">
+      <label class="btn btn-outline-secondary" for="instrument-bass">Bass</label>
       
-        <option value=".instrument-lead">Lead</option>
+      <input type="checkbox" class="btn-check" id="instrument-lead"
+             value=".instrument-lead" autocomplete="off">
+      <label class="btn btn-outline-secondary" for="instrument-lead">Lead</label>
       
-    </select>
+    </div>
   </fieldset>
-  <fieldset class="col-12 col-md" data-filter-group>
-    <select id="filter-style" class="form-select" aria-label="Style">
-      <option value="">All styles</option>
-      
+
+  <div class="row g-2">
+    <fieldset class="col-12 col-md" data-filter-group>
+      <select id="filter-style" class="form-select" aria-label="Style">
+        <option value="">All styles</option>
+        
         <option value=".style-transe">Transe</option>
-      
-    </select>
-  </fieldset>
-  <fieldset class="col-12 col-md" data-filter-group>
-    <select id="filter-author" class="form-select" aria-label="Author">
-      <option value="">All authors</option>
-      
+        
+      </select>
+    </fieldset>
+
+    <fieldset class="col-12 col-md" data-filter-group>
+      <select id="filter-author" class="form-select" aria-label="Author">
+        <option value="">All authors</option>
+        
         <option value=".author-dakanok">Dakanok</option>
-      
-    </select>
-  </fieldset>
-  <div class="col-12 col-md-auto">
-    <button type="reset" class="btn btn-outline-secondary w-100">
-      <i class="fa-solid fa-xmark"></i>
-      Reset
-    </button>
+        
+      </select>
+    </fieldset>
+
+    <div class="col-12 col-md-auto">
+      <button type="reset" class="btn btn-outline-secondary w-100">
+        <i class="fa-solid fa-xmark"></i> Reset
+      </button>
+    </div>
   </div>
 </form>
 <div id="patches" class="row g-4">

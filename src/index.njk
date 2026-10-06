@@ -3,36 +3,45 @@ layout: base.njk
 title: Woovebox Patches Exchange
 ---
 
-<form class="row g-2 mb-4">
-  <fieldset class="col-12 col-md" data-filter-group>
-    <select id="filter-instrument" class="form-select" aria-label="Instrument">
-      <option value="">All instruments</option>
+<form class="bg-body-secondary border rounded p-3 mb-4">
+  <fieldset id="filter-instrument" class="mb-3" data-filter-group>
+    <legend class="visually-hidden">Instrument</legend>
+    <div class="d-flex flex-wrap align-items-center gap-2">
+      <span class="wpe-filter-label" aria-hidden="true">Instrument:</span>
+      <button type="button" id="instrument-all" class="btn btn-outline-secondary"
+              aria-pressed="true">All</button>
       {% for instrument in filters.instruments %}
-        <option value=".instrument-{{ instrument | slugify }}">{{ instrument | capitalize }}</option>
+      <input type="checkbox" class="btn-check" id="instrument-{{ instrument | slugify }}"
+             value=".instrument-{{ instrument | slugify }}" autocomplete="off">
+      <label class="btn btn-outline-secondary" for="instrument-{{ instrument | slugify }}">{{ instrument | capitalize }}</label>
       {% endfor %}
-    </select>
+    </div>
   </fieldset>
-  <fieldset class="col-12 col-md" data-filter-group>
-    <select id="filter-style" class="form-select" aria-label="Style">
-      <option value="">All styles</option>
-      {% for style in filters.styles %}
+
+  <div class="row g-2">
+    <fieldset class="col-12 col-md" data-filter-group>
+      <select id="filter-style" class="form-select" aria-label="Style">
+        <option value="">All styles</option>
+        {% for style in filters.styles %}
         <option value=".style-{{ style | slugify }}">{{ style | capitalize }}</option>
-      {% endfor %}
-    </select>
-  </fieldset>
-  <fieldset class="col-12 col-md" data-filter-group>
-    <select id="filter-author" class="form-select" aria-label="Author">
-      <option value="">All authors</option>
-      {% for author in filters.authors %}
+        {% endfor %}
+      </select>
+    </fieldset>
+
+    <fieldset class="col-12 col-md" data-filter-group>
+      <select id="filter-author" class="form-select" aria-label="Author">
+        <option value="">All authors</option>
+        {% for author in filters.authors %}
         <option value=".author-{{ author | slugify }}">{{ author }}</option>
-      {% endfor %}
-    </select>
-  </fieldset>
-  <div class="col-12 col-md-auto">
-    <button type="reset" class="btn btn-outline-secondary w-100">
-      <i class="fa-solid fa-xmark"></i>
-      Reset
-    </button>
+        {% endfor %}
+      </select>
+    </fieldset>
+
+    <div class="col-12 col-md-auto">
+      <button type="reset" class="btn btn-outline-secondary w-100">
+        <i class="fa-solid fa-xmark"></i> Reset
+      </button>
+    </div>
   </div>
 </form>
 <div id="patches" class="row g-4">

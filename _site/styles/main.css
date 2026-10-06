@@ -100,8 +100,8 @@
   --bs-emphasis-color-rgb: 11, 12, 18;
   --bs-secondary-color: #5d5f70;
   --bs-secondary-color-rgb: 93, 95, 112;
-  --bs-secondary-bg: #e9ecef;
-  --bs-secondary-bg-rgb: 233, 236, 239;
+  --bs-secondary-bg: #eae6da;
+  --bs-secondary-bg-rgb: 234, 230, 218;
   --bs-tertiary-color: rgba(26, 27, 37, 0.5);
   --bs-tertiary-color-rgb: 26, 27, 37;
   --bs-tertiary-bg: #fbf9f4;
@@ -149,8 +149,8 @@
   --bs-emphasis-color-rgb: 247, 245, 239;
   --bs-secondary-color: #9a9cae;
   --bs-secondary-color-rgb: 154, 156, 174;
-  --bs-secondary-bg: #343a40;
-  --bs-secondary-bg-rgb: 52, 58, 64;
+  --bs-secondary-bg: #232636;
+  --bs-secondary-bg-rgb: 35, 38, 54;
   --bs-tertiary-color: rgba(236, 233, 225, 0.5);
   --bs-tertiary-color-rgb: 236, 233, 225;
   --bs-tertiary-bg: #1b1d29;
@@ -11935,6 +11935,12 @@ textarea.form-control-lg {
   opacity: 0.85;
 }
 
+.wpe-filter-label {
+  margin-right: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
 .patch-author {
   display: block;
   margin-bottom: 0.125rem;
@@ -12040,4 +12046,12 @@ textarea.form-control-lg {
 [data-bs-theme=light] .icon-sun,
 [data-bs-theme=dark] .icon-moon {
   display: none;
+}
+
+.btn-check:checked + .btn-outline-secondary,
+.btn-outline-secondary.mixitup-control-active,
+.btn-outline-secondary.active {
+  color: var(--wpe-ink-fg);
+  background-color: var(--wpe-ink-bg);
+  border-color: var(--wpe-ink-bg);
 }

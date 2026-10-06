@@ -34,8 +34,10 @@ $body-secondary-color: #5d5f70
 $body-tertiary-bg: #fbf9f4
 $border-color: #dcd7c9
 $link-color: #09704a
+$body-secondary-bg: #eae6da
 
 // Mode sombre : encre
+$body-secondary-bg-dark: #232636
 $body-bg-dark: #12131c
 $body-color-dark: #ece9e1
 $body-emphasis-color-dark: #f7f5ef
@@ -108,6 +110,11 @@ $card-bg: var(--bs-tertiary-bg)
     color: $color-contrast-dark
     border-color: $primary
     opacity: 0.85
+
+.wpe-filter-label
+  margin-right: 0.25rem
+  font-size: 0.875rem
+  font-weight: 500
 
 // ---------- Auteur ----------
 .patch-author
@@ -207,3 +214,10 @@ $card-bg: var(--bs-tertiary-bg)
 [data-bs-theme="light"] .icon-sun,
 [data-bs-theme="dark"] .icon-moon
   display: none
+
+.btn-check:checked + .btn-outline-secondary,
+.btn-outline-secondary.mixitup-control-active,
+.btn-outline-secondary.active
+  color: var(--wpe-ink-fg)
+  background-color: var(--wpe-ink-bg)
+  border-color: var(--wpe-ink-bg)
